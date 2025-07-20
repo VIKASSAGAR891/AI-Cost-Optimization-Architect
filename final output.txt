@@ -1,0 +1,85 @@
+Final Report: AI-Driven Predictive Maintenance Insights
+
+1. Use Case Overview
+- Use Case: AI-Driven Predictive Maintenance Insights
+- Industry: Manufacturing
+- Business Goal: Enhance operational efficiency by proactively identifying maintenance needs using AI-powered FAQ agents.
+
+Expected Benefits:
+- Reduced unplanned downtime
+- Faster resolution of vendor and internal queries
+- Improved operational visibility through automated alerts
+
+2. Cost Modeling Summary
+- Monthly Baseline Cost: $6,100
+- Annual Baseline Cost: $73,200
+
+Primary Cost Drivers:
+- High-frequency vendor and system queries
+- Large model token usage (500+ tokens per interaction)
+- 24/7 uptime SLA requirements
+
+Identified Opportunities for Optimization:
+- Reduce average prompt length to 300 tokens
+- Use moderate-quality, lower-latency models
+- Switch to cost-efficient inference providers
+
+3. Agent Design Recommendation
+Recommended Model: Amazon Nova Pro
+Justification: Offers balanced monthly cost (~$4,860), low latency (190ms), and high-enough quality for high-volume FAQ scenarios like invoice queries and vendor support.
+
+Backup Models:
+1. Amazon Titan Text Express – Moderate latency (220ms) and slightly lower cost; suitable for non-critical queries.
+2. Bedrock Llama 3 8B – Great for complex QA tasks with good latency and reasoning capabilities.
+
+Excluded Models:
+- GPT-4o and Cohere Command R+ – Due to high latency and cost.
+- Titan Text Mini – Excluded for insufficient quality in this domain.
+
+4. What-If Simulation Analysis
+
+Scenario:
+What if we switch to the Bedrock Claude Haiku model despite slower latency, to improve maintenance insights?
+
+Impact Analysis:
+
+A. Cost Impact
+- Previous Monthly Cost: $6,100
+- New Monthly Cost: $4,300
+- Annual Savings: $21,600 (29.5%)
+Commentary: Switching to Claude Haiku significantly lowers costs while maintaining strong model performance.
+
+B. Performance Impact
+- Latency: 420ms (vs. 190ms of Nova Pro)
+- Quality: High
+- Accuracy: Improved for predictive maintenance
+Commentary: Latency is slower but acceptable for non-real-time use; higher quality boosts insight precision.
+
+C. Risk Assessment
+- Compliance: Unaffected
+- Security: No degradation (ISO 27001, RBAC, Audit Logs remain intact)
+- Risk Level: Medium
+Commentary: Slightly increased risk in time-sensitive scenarios due to latency but manageable overall.
+
+5. Final Recommendation
+
+Proceed with the switch to Bedrock Claude Haiku for improved insight quality and significant cost savings — provided that real-time alerting needs remain within acceptable latency bounds.
+
+Rationale:
+- Substantial cost reduction (~$21,600/year)
+- Improved predictive insight accuracy
+- Latency trade-off is acceptable in non-critical maintenance scenarios
+
+Implementation Tips:
+- Continuously monitor system performance for latency-sensitive use cases
+- Adjust alerting thresholds or fallback strategies if real-time issues arise
+- Consider a hybrid model deployment for high-priority alerts using low-latency models
+
+6. Summary
+
+This multi-agent architecture, with inputs from cost, design, and simulation advisors, confirms that adopting Bedrock Claude Haiku will result in:
+- ~30% annual cost savings
+- Higher-quality maintenance insights
+- Medium operational risk due to increased latency
+
+Recommendation: Adopt Claude Haiku, but monitor system performance and real-time alert needs closely.
